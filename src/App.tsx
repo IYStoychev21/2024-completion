@@ -21,7 +21,7 @@ function App() {
     setMinutes(Math.floor(duration.asMinutes() % 60))
     setSec(Math.floor(duration.asSeconds() % 60))
 
-    setProgress(Math.floor((100 - (duration.asDays() / 365) * 100)))
+    setProgress(Math.floor((100 - (duration.asDays() / 366) * 100)))
 
     setCurrentTime(moment())
   }, [currentTime])
