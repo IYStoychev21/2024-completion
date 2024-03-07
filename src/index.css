@@ -55,5 +55,10 @@
   }
   body {
     @apply bg-background text-foreground;
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    background-color: hsl(224 71.4% 4.1%);
   }
 }
