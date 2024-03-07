@@ -1,44 +1,51 @@
+# Simple workflow for deploying static content to GitHub Pages
 name: build-deploy
-on: push
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-      - name: use node.js
-        uses: actions/setup-node@v3
-      - run: npm install
-      - run: npm run build
-
+  # Single deploy job since we're just deploying
   deploy:
-    needs: build
-    permissions:
-      contents: write
-      pages: write     
-      id-token: write
     environment:
-      name: production
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: setup node
+          node-version: 20
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
         uses: actions/configure-pages@v3
-      - run: npm install
-      - run: npm run build
-      
-      - name: upload artifacts
-        uses: actions/upload-pages-artifact@v1
-        with: 
-          path: "./dist"
-
-      - name: deploy
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload dist repository
+          path: './dist'
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
