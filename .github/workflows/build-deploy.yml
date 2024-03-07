@@ -13,6 +13,7 @@ jobs:
       - run: npm run build
 
   deploy:
+    needs: build
     permissions:
       contents: write
       pages: write     
