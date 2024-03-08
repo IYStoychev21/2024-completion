@@ -28,27 +28,39 @@ function App() {
 
   return (
     <>
-      <div className="h-screen w-screen flex justify-center items-center">
-        <div className="w-2/3 min-h-2/3 p-14 gap-5 bg-slate-800 rounded-lg flex justify-center items-center flex-col">
-          <div className="w-full h-1/5 flex gap-12 text-white font-black justify-center items-center text-3xl max-lg:flex-col">
-            <h1>{days + " Days".toUpperCase()}</h1>
-            <h1>{hours + " Hours".toUpperCase()}</h1>
-            <h1>{minutes + " Minutes".toUpperCase()}</h1>
-            <h1>{sec + " Seconds".toUpperCase()}</h1>
+      <div className="min-h-screen w-screen flex justify-center items-center flex-col">
+        <div className="w-2/3 h-full flex flex-col justify-center items-center gap-8">
+          <div className="w-full min-h-2/3 p-14 gap-5 bg-slate-800 rounded-lg flex justify-center items-center flex-col">
+            <div className="w-full h-1/5 flex gap-12 text-white font-black justify-center items-center text-3xl max-lg:flex-col">
+              <h1>{days + " Days".toUpperCase()}</h1>
+              <h1>{hours + " Hours".toUpperCase()}</h1>
+              <h1>{minutes + " Minutes".toUpperCase()}</h1>
+              <h1>{sec + " Seconds".toUpperCase()}</h1>
+            </div>
+
+            <div className="flex flex-col justify-center items-center text-white font-bold text-4xl gap-4">
+              <h1 className="text-6xl font-black text-primary">2024</h1>
+              <h1 className="text-4xl">IS</h1>
+              <h1 className="text-primary text-6xl">{progress}%</h1>
+              <h1>{"complete".toUpperCase()}</h1>
+            </div>
+
+            <div className="w-3/4 h-1/5 flex justify-center items-center gap-4 text-white font-bold">
+              <h1>0%</h1>
+              <Progress value={progress} />
+              <h1>100%</h1>
+            </div>
           </div>
 
-          <div className="flex flex-col justify-center items-center text-white font-bold text-4xl gap-4">
-            <h1 className="text-6xl font-black text-primary">2024</h1>
-            <h1 className="text-4xl">IS</h1>
-            <h1 className="text-primary text-6xl">{progress}%</h1>
-            <h1>{"complete".toUpperCase()}</h1>
+          <div className="bg-slate-800 w-full min-h-1/6 rounded-lg flex justify-center items-center flex-col text-white font-bold text-2xl p-8">
+            <h1>{"For that time on average".toUpperCase()}</h1> 
+            <h1 className="font-thin italic text-3xl text-primary">{"you can".toUpperCase()}</h1>
           </div>
 
-          <div className="w-3/4 h-1/5 flex justify-center items-center gap-4 text-white font-bold">
-            <h1>0%</h1>
-            <Progress value={progress} />
-            <h1>100%</h1>
-          </div>
+          {/* <div className="w-full rounded-lg grid justify-center items-center flex-col text-white font-bold text-2xl p-8">
+
+          </div> */}
+
         </div>
       </div>
     </>
