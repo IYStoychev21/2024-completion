@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
-import moment, { duration } from "moment"
+import moment, { duration, min } from "moment"
 import { Progress } from "@/components/ui/progress"
 import TileCard from "./components/TileCard"
+import Nav from "./components/Nav"
 
 import hamburgerIcon from "/public/icons/hamburger.png"
 import bottleOfWaterIcon from "/public/icons/bottle-of-water.png"
@@ -33,9 +34,19 @@ function App() {
     setCurrentTime(moment())
   }, [currentTime])
 
+  let [shouldHideNav, setShouldHideNav] = useState(true)
+  document.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      setShouldHideNav(false)
+    } else {
+      setShouldHideNav(true)
+    }
+  })
+
   return (
     <>
       <div className="min-h-screen w-screen flex justify-center items-center flex-col">
+        <Nav className={`${shouldHideNav? 'hidden': 'fixed'}`} days={days} minutes={minutes} hours={hours} sec={sec} progress={progress}/>
         <div className="w-2/3 h-full flex flex-col mt-16 justify-center items-center gap-8">
           <div className="w-full min-h-2/3 p-14 gap-5 bg-slate-800 rounded-lg flex justify-center items-center flex-col">
             <div className="w-full h-1/5 flex gap-12 text-white font-black justify-center items-center text-3xl max-lg:flex-col">
