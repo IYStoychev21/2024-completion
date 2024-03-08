@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react"
 import moment, { duration } from "moment"
 import { Progress } from "@/components/ui/progress"
-import OneTileCard from "./components/OneTileCard"
+import TileCard from "./components/TileCard"
 
 import hamburgerIcon from "/public/icons/hamburger.png"
 import bottleOfWaterIcon from "/public/icons/bottle-of-water.png"
+import walkingIcon from "/public/icons/walking.png"
 
 function App() {
   let endTime = moment("2024-12-31T23:59:59")
@@ -64,8 +65,9 @@ function App() {
           </div>
 
           <div className="w-full rounded-lg gap-8 grid flex-col text-white font-bold text-2xl mb-16 grid-cols-2">
-            <OneTileCard className="col-span-1" textTop={"eat".toUpperCase()} number={Math.floor(duration.asSeconds() / (15 * 60))} textBottom={"hamburgers".toUpperCase()} icon={hamburgerIcon}/>
-            <OneTileCard className="col-span-1" textTop={"drink".toUpperCase()} number={Math.floor(duration.asSeconds() / (5 * 60))} textBottom={"1.5 litre water bottles".toUpperCase()} icon={bottleOfWaterIcon}/>
+            <TileCard tileNumber="1" textTop={"eat".toUpperCase()} number={Math.floor(duration.asSeconds() / (15 * 60))} textBottom={"hamburgers".toUpperCase()} icon={hamburgerIcon}/>
+            <TileCard tileNumber="1" textTop={"drink".toUpperCase()} number={Math.floor(duration.asSeconds() / (5 * 60))} textBottom={"1.5 litre water bottles".toUpperCase()} icon={bottleOfWaterIcon}/>
+            <TileCard tileNumber="2" textTop={"walk".toUpperCase()} number={Math.floor(duration.asSeconds() / (20 * 60))} textBottom={"kilometres".toUpperCase()} icon={walkingIcon}/>
           </div>
 
         </div>
