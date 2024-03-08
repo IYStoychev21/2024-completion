@@ -1,7 +1,7 @@
 import { Progress } from "./ui/progress"
 import upIcon from "/icons/upload.png"
 
-export default function Nav({className, days, hours, minutes, sec, progress}) {
+export default function Nav({className, days, hours, minutes, sec, progress} : any) {
     return (
         <>
             <div className={`${className} z-10 w-full gap-8 h-16 bg-[#33333370] backdrop-blur-lg flex items-center fixed top-0 left-0 pl-5`}>
