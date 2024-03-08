@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react"
-import moment from "moment"
+import moment, { duration } from "moment"
 import { Progress } from "@/components/ui/progress"
+import OneTileCard from "./components/OneTileCard"
+
+import hamburgerIcon from "/public/icons/hamburger.png"
+import bottleOfWaterIcon from "/public/icons/bottle-of-water.png"
 
 function App() {
   let endTime = moment("2024-12-31T23:59:59")
@@ -13,8 +17,10 @@ function App() {
 
   let [progress, setProgress] = useState(0)
 
+  let [duration, setDuration] = useState(moment.duration(0)) 
+  
   useEffect(() => {
-    let duration = moment.duration(endTime.diff((currentTime)))
+    setDuration(moment.duration(endTime.diff((currentTime))))
 
     setDays(Math.floor(duration.asDays()))
     setHours(Math.floor(duration.asHours() % 24))
@@ -29,7 +35,7 @@ function App() {
   return (
     <>
       <div className="min-h-screen w-screen flex justify-center items-center flex-col">
-        <div className="w-2/3 h-full flex flex-col justify-center items-center gap-8">
+        <div className="w-2/3 h-full flex flex-col mt-16 justify-center items-center gap-8">
           <div className="w-full min-h-2/3 p-14 gap-5 bg-slate-800 rounded-lg flex justify-center items-center flex-col">
             <div className="w-full h-1/5 flex gap-12 text-white font-black justify-center items-center text-3xl max-lg:flex-col">
               <h1>{days + " Days".toUpperCase()}</h1>
@@ -57,9 +63,10 @@ function App() {
             <h1 className="font-thin italic text-3xl text-primary">{"you can".toUpperCase()}</h1>
           </div>
 
-          {/* <div className="w-full rounded-lg grid justify-center items-center flex-col text-white font-bold text-2xl p-8">
-
-          </div> */}
+          <div className="w-full rounded-lg gap-8 grid flex-col text-white font-bold text-2xl mb-16 grid-cols-2">
+            <OneTileCard className="col-span-1" textTop={"eat".toUpperCase()} number={Math.floor(duration.asSeconds() / (15 * 60))} textBottom={"hamburgers".toUpperCase()} icon={hamburgerIcon}/>
+            <OneTileCard className="col-span-1" textTop={"drink".toUpperCase()} number={Math.floor(duration.asSeconds() / (5 * 60))} textBottom={"1.5 litre water bottles".toUpperCase()} icon={bottleOfWaterIcon}/>
+          </div>
 
         </div>
       </div>
