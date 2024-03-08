@@ -79,12 +79,12 @@ function App() {
           </div>
 
           <div className="w-full rounded-lg gap-8 grid flex-col text-white font-bold text-2xl mb-16 grid-cols-2">
-            <TileCard className="" tileNumber="1" textTop={"eat".toUpperCase()} number={Math.floor(duration.asSeconds() / (15 * 60))} textBottom={"hamburgers".toUpperCase()} icon={hamburgerIcon}/>
-            <TileCard className="" tileNumber="1" textTop={"drink".toUpperCase()} number={Math.floor(duration.asSeconds() / (5 * 60))} textBottom={"1.5 litre water bottles".toUpperCase()} icon={bottleOfWaterIcon}/>
-            <TileCard className="" tileNumber="2" textTop={"walk".toUpperCase()} number={Math.floor(duration.asSeconds() / (20 * 60))} textBottom={"kilometres".toUpperCase()} icon={walkingIcon}/>
-            <TileCard className="" tileNumber="1" textTop={"play".toUpperCase()} number={Math.floor(duration.asSeconds() / (45 * 60))} textBottom={"games of chess".toUpperCase()} icon={chessIcon}/>
-            <TileCard className="" tileNumber="1" textTop={"do".toUpperCase()} number={Math.floor(duration.asSeconds() / (3 * 60))} textBottom={"push ups".toUpperCase()} icon={pushupIcon}/>
-            <TileCard className="" tileNumber="2" textTop={"circle the earth".toUpperCase()} number={Math.floor(duration.asSeconds() / (50* 60 * 60))} textBottom={"in a commercial plane".toUpperCase()} icon={planeAroundEarthIcon}/>
+            <TileCard tileNumber="1" textTop={"eat".toUpperCase()} number={Math.floor(duration.asSeconds() / (15 * 60))} textBottom={"hamburgers".toUpperCase()} icon={hamburgerIcon}/>
+            <TileCard tileNumber="1" textTop={"drink".toUpperCase()} number={Math.floor(duration.asSeconds() / (5 * 60))} textBottom={"1.5 litre water bottles".toUpperCase()} icon={bottleOfWaterIcon}/>
+            <TileCard tileNumber="2" textTop={"walk".toUpperCase()} number={Math.floor(duration.asSeconds() / (20 * 60))} textBottom={"kilometres".toUpperCase()} icon={walkingIcon}/>
+            <TileCard tileNumber="1" textTop={"play".toUpperCase()} number={Math.floor(duration.asSeconds() / (45 * 60))} textBottom={"games of chess".toUpperCase()} icon={chessIcon}/>
+            <TileCard tileNumber="1" textTop={"do".toUpperCase()} number={Math.floor(duration.asSeconds() / (3 * 60))} textBottom={"push ups".toUpperCase()} icon={pushupIcon}/>
+            <TileCard tileNumber="2" textTop={"circle the earth".toUpperCase()} number={Math.floor(duration.asSeconds() / (50* 60 * 60))} textBottom={"in a commercial plane".toUpperCase()} icon={planeAroundEarthIcon}/>
           </div>
 
         </div>
