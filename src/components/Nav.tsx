@@ -1,5 +1,5 @@
 import { Progress } from "./ui/progress"
-import upIcon from "/public/icons/upload.png"
+import upIcon from "/icons/upload.png"
 
 export default function Nav({className, days, hours, minutes, sec, progress}) {
     return (

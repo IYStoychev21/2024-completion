@@ -4,9 +4,12 @@ import { Progress } from "@/components/ui/progress"
 import TileCard from "./components/TileCard"
 import Nav from "./components/Nav"
 
-import hamburgerIcon from "/public/icons/hamburger.png"
-import bottleOfWaterIcon from "/public/icons/bottle-of-water.png"
-import walkingIcon from "/public/icons/walking.png"
+import hamburgerIcon from "/icons/hamburger.png"
+import bottleOfWaterIcon from "/icons/bottle-of-water.png"
+import walkingIcon from "/icons/walking.png"
+import chessIcon from "/icons/chess.png"
+import pushupIcon from "/icons/push-up.png"
+import planeAroundEarthIcon from "/icons/around-the-world.png"
 
 function App() {
   let endTime = moment("2024-12-31T23:59:59")
@@ -79,6 +82,9 @@ function App() {
             <TileCard tileNumber="1" textTop={"eat".toUpperCase()} number={Math.floor(duration.asSeconds() / (15 * 60))} textBottom={"hamburgers".toUpperCase()} icon={hamburgerIcon}/>
             <TileCard tileNumber="1" textTop={"drink".toUpperCase()} number={Math.floor(duration.asSeconds() / (5 * 60))} textBottom={"1.5 litre water bottles".toUpperCase()} icon={bottleOfWaterIcon}/>
             <TileCard tileNumber="2" textTop={"walk".toUpperCase()} number={Math.floor(duration.asSeconds() / (20 * 60))} textBottom={"kilometres".toUpperCase()} icon={walkingIcon}/>
+            <TileCard tileNumber="1" textTop={"play".toUpperCase()} number={Math.floor(duration.asSeconds() / (45 * 60))} textBottom={"games of chess".toUpperCase()} icon={chessIcon}/>
+            <TileCard tileNumber="1" textTop={"do".toUpperCase()} number={Math.floor(duration.asSeconds() / (3 * 60))} textBottom={"push ups".toUpperCase()} icon={pushupIcon}/>
+            <TileCard tileNumber="2" textTop={"circle the earth".toUpperCase()} number={Math.floor(duration.asSeconds() / (50* 60 * 60))} textBottom={"in a commercial plane".toUpperCase()} icon={planeAroundEarthIcon}/>
           </div>
 
         </div>
